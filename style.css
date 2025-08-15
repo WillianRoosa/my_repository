@@ -444,6 +444,14 @@ footer {
         height: 80px;
     }
 
+    .lang-switch {
+        margin-left: -30px;
+    }
+
+    .lang-label {
+        border-radius: 50%;
+    }
+
     section {
         margin-top: -50px;
     }
