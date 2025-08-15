@@ -54,6 +54,15 @@ function setLanguage(lang) {
 }
 setLanguage("en");
 
+// ======= MENU MOBILE =======
+const menuHamburger = document.querySelector(".menu-hamburger");
+const mobileMenu = document.querySelector("nav.mobile-menu");
+
+menuHamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    menuHamburger.classList.toggle("active");
+});
+
 // ======= ANIMAÇÕES AO SCROLL =======
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -71,9 +80,14 @@ document.querySelectorAll(".scroll-animation").forEach(el => observer.observe(el
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            if (mobileMenu.classList.contains("open")) {
+                mobileMenu.classList.remove("open");
+                menuHamburger.classList.remove("active");
+            }
+        }
     });
 });
 
@@ -104,8 +118,7 @@ phoneInput.addEventListener("input", (e) => {
     phoneHidden.value = toE164Brazil(raw);
 });
 
-// ======= Sombra do mouse =======
-
+// ======= SOMBRA DO MOUSE =======
 const cursor = document.getElementById('cursor-shadow');
 
 document.addEventListener('mousemove', e => {
@@ -113,7 +126,7 @@ document.addEventListener('mousemove', e => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Opcional: aumentar a sombra quando passar em cards de projeto
+// Aumenta a sombra sobre cards
 const projects = document.querySelectorAll('.project_card');
 
 projects.forEach(card => {
@@ -128,32 +141,6 @@ projects.forEach(card => {
         cursor.style.background = 'rgba(74, 222, 128, 0.2)';
     });
 });
-
-// ======= MENU MOBILE =======
-const btnAbrirMenu = document.getElementById("btn-abrir-menu");
-const menuMobile = document.getElementById("menu-mobile");
-const btnFecharMenu = menuMobile.querySelector(".btn-fechar a");
-const overlayMenu = document.getElementById("overlay-menu");
-
-function abrirMenu() {
-    menuMobile.classList.add("menu-mobile-ativo");
-    overlayMenu.classList.add("overlay-ativo");
-}
-
-function fecharMenu() {
-    menuMobile.classList.remove("menu-mobile-ativo");
-    overlayMenu.classList.remove("overlay-ativo");
-}
-
-btnAbrirMenu.addEventListener("click", abrirMenu);
-btnFecharMenu.addEventListener("click", fecharMenu);
-overlayMenu.addEventListener("click", fecharMenu);
-
-menuMobile.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", fecharMenu);
-});
-
-
 
 // ======= ENVIO DO FORMULÁRIO =======
 form.addEventListener("submit", async (e) => {

@@ -10,6 +10,7 @@ body {
     background-color: #0d1117;
     color: #e6edf3;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* ======= HEADER ======= */
@@ -21,7 +22,7 @@ header {
     background-color: rgba(13, 17, 23, 0.9);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     backdrop-filter: blur(10px);
 }
 
@@ -32,21 +33,40 @@ header {
     object-fit: contain;
 }
 
-/* ======= NAV ======= */
-nav ul {
+/* ======= NAV DESKTOP ======= */
+.desktop-nav ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
 }
 
-nav a {
+.desktop-nav a {
     text-decoration: none;
     color: #e6edf3;
     font-weight: 600;
+    position: relative;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #4ade80;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.desktop-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.desktop-nav a:hover {
     color: #4ade80;
 }
 
@@ -312,13 +332,13 @@ footer {
     border-top: 1px solid #30363d;
 }
 
-/* ======= CURSOR ======= */
+/* ======= CURSOR SHADOW ======= */
 .cursor-shadow {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     position: fixed;
     pointer-events: none;
+    border-radius: 50%;
     background: rgba(74, 222, 128, 0.2);
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
@@ -329,93 +349,109 @@ footer {
 .menu-hamburger {
     display: none;
     flex-direction: column;
-    cursor: pointer;
-    width: 30px;
+    justify-content: space-around;
+    width: 28px;
     height: 22px;
-    justify-content: space-between;
-    z-index: 1002;
+    cursor: pointer;
+    z-index: 105;
 }
 
 .menu-hamburger span {
     display: block;
-    height: 4px;
-    background-color: #4ade80;
-    border-radius: 2px;
+    height: 3px;
+    width: 100%;
+    background: #4ade80;
+    border-radius: 3px;
 }
 
 #menu-mobile {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    width: 70%;
+    max-width: 300px;
     height: 100%;
-    background: #1f2937;
-    color: #e6edf3;
-    transition: right 0.3s ease;
-    z-index: 1001;
-    padding: 20px;
+    background-color: #161b22;
+    padding: 4rem 1.5rem;
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 104;
 }
 
-#menu-mobile nav ul {
+#menu-mobile ul {
     list-style: none;
-    padding: 0;
-    margin-top: 40px;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateX(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-#menu-mobile.menu-mobile-ativo nav ul {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-#menu-mobile nav ul li {
-    margin-bottom: 20px;
-}
-
-#menu-mobile nav ul li a {
-    color: #e6edf3;
+#menu-mobile a {
     text-decoration: none;
+    color: #e6edf3;
     font-weight: 600;
     font-size: 1.2rem;
 }
 
 #overlay-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
     display: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 103;
 }
 
-.overlay-ativo {
-    display: block !important;
-}
+/* ======= RESPONSIVIDADE ======= */
 
-/* ======= RESPONSIVO ======= */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1024) and (max-width: 1080px) {}
+
+@media screen and (min-width: 300px) and (max-width: 700px) {
+
     .desktop-nav {
         display: none;
     }
 
     .menu-hamburger {
         display: flex;
+        order: 2
     }
 
-    #hero {
-        flex-direction: column;
-        text-align: center;
+    #menu-mobile.active {
+        right: 0;
     }
 
+    #overlay-menu.active {
+        display: block;
+    }
+
+    #hero,
     .about-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 250px;
+    }
+
+    .logo {
+        height: 50px;
+        width: auto;
+        object-fit: contain;
+    }
+}
+
+/* ======= ANIMAÇÕES ======= */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

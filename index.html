@@ -11,10 +11,12 @@
 </head>
 
 <body>
-    <!-- Header permanece igual -->
+    <!-- Header -->
     <header>
         <img src="assets/logo.png" alt="WR Developer Logo" class="logo scroll-animation" data-animation="fadeInDown">
-        <nav>
+
+        <!-- Desktop nav -->
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="#about" data-lang="nav_about" class="scroll-animation"
                         data-animation="fadeInDown">About</a></li>
@@ -26,39 +28,36 @@
                         data-animation="fadeInDown">Contact</a></li>
             </ul>
         </nav>
+
+        <!-- Hamburger menu (mobile) -->
+        <div class="menu-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="menu-mobile">
+            <nav>
+                <ul>
+                    <li><a href="#about" data-lang="nav_about">About</a></li>
+                    <li><a href="#projects" data-lang="nav_projects">Projects</a></li>
+                    <li><a href="#experience" data-lang="nav_experience">Experience</a></li>
+                    <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="overlay-menu"></div>
+
+        <!-- Language switch -->
         <div class="lang-switch">
             <input type="radio" name="language" id="lang-en" checked onclick="setLanguage('en')">
             <label for="lang-en" class="lang-label">🇬🇧</label>
-
             <input type="radio" name="language" id="lang-pt" onclick="setLanguage('pt')">
             <label for="lang-pt" class="lang-label">🇧🇷</label>
-
             <div class="switch-slider"></div>
         </div>
-
-        <!-- Botão Hamburger para Mobile -->
-        <button class="btn-abrir-menu" id="btn-abrir-menu">
-            <img src="assets/menu-icon.png" alt="Menu">
-        </button>
     </header>
-
-    <!-- Menu Mobile -->
-    <div class="menu-mobile" id="menu-mobile">
-        <div class="btn-fechar">
-            <a href="#"><img src="assets/close-icon.png" alt="Fechar"></a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Overlay -->
-    <div class="overlay-menu" id="overlay-menu"></div>
 
     <!-- Hero -->
     <section id="hero">
@@ -83,8 +82,8 @@
             <div class="about-text scroll-animation" data-animation="fadeInLeft">
                 <h2 data-lang="about_title">About me</h2>
                 <p data-lang="about_text">
-                    I am a backend developer with experience in Java, Spring Boot, and REST APIs. I love
-                    creating clean, efficient, and scalable code.
+                    I am a backend developer with experience in Java, Spring Boot, and REST APIs. I love creating clean,
+                    efficient, and scalable code.
                 </p>
                 <div class="social-links scroll-animation" data-animation="fadeInUp">
                     <a href="https://github.com/WillianRoosa" target="_blank">🐱 GitHub</a>
@@ -141,12 +140,15 @@
         </form>
     </section>
 
-    <!-- Footer permanece igual -->
+    <!-- Footer -->
     <footer class="scroll-animation" data-animation="fadeInUp">
         <p>&copy; 2025 Willian Rosa Developer</p>
     </footer>
-    <p id="form-status"></p>
+
+    <!-- Cursor shadow -->
     <div class="cursor-shadow" id="cursor-shadow"></div>
+
+    <p id="form-status"></p>
     <script src="script.js"></script>
 </body>
 
