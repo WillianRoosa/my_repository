@@ -17,8 +17,7 @@
         <nav>
             <ul>
                 <li><a href="#about" data-lang="nav_about" class="scroll-animation"
-                        data-animation="fadeInDown">About</a>
-                </li>
+                        data-animation="fadeInDown">About</a></li>
                 <li><a href="#projects" data-lang="nav_projects" class="scroll-animation"
                         data-animation="fadeInDown">Projects</a></li>
                 <li><a href="#experience" data-lang="nav_experience" class="scroll-animation"
@@ -36,7 +35,30 @@
 
             <div class="switch-slider"></div>
         </div>
+
+        <!-- Botão Hamburger para Mobile -->
+        <button class="btn-abrir-menu" id="btn-abrir-menu">
+            <img src="assets/menu-icon.png" alt="Menu">
+        </button>
     </header>
+
+    <!-- Menu Mobile -->
+    <div class="menu-mobile" id="menu-mobile">
+        <div class="btn-fechar">
+            <a href="#"><img src="assets/close-icon.png" alt="Fechar"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay-menu" id="overlay-menu"></div>
 
     <!-- Hero -->
     <section id="hero">
@@ -124,6 +146,7 @@
         <p>&copy; 2025 Willian Rosa Developer</p>
     </footer>
     <p id="form-status"></p>
+    <div class="cursor-shadow" id="cursor-shadow"></div>
     <script src="script.js"></script>
 </body>
 
