@@ -426,13 +426,14 @@ footer {
     }
 
     #hero,
-    .about-content {
+    .about-content,
+    .hero-content {
         flex-direction: column;
         text-align: center;
     }
 
     .hero-image img {
-        max-width: 250px;
+        max-width: 200px;
     }
 
     .logo {
