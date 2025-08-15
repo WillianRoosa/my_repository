@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willian Rosa - Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header permanece igual -->
+    <header>
+        <img src="assets/logo.png" alt="WR Developer Logo" class="logo scroll-animation" data-animation="fadeInDown">
+        <nav>
+            <ul>
+                <li><a href="#about" data-lang="nav_about" class="scroll-animation"
+                        data-animation="fadeInDown">About</a>
+                </li>
+                <li><a href="#projects" data-lang="nav_projects" class="scroll-animation"
+                        data-animation="fadeInDown">Projects</a></li>
+                <li><a href="#experience" data-lang="nav_experience" class="scroll-animation"
+                        data-animation="fadeInDown">Experience</a></li>
+                <li><a href="#contact" data-lang="nav_contact" class="scroll-animation"
+                        data-animation="fadeInDown">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switch">
+            <input type="radio" name="language" id="lang-en" checked onclick="setLanguage('en')">
+            <label for="lang-en" class="lang-label">🇬🇧</label>
+
+            <input type="radio" name="language" id="lang-pt" onclick="setLanguage('pt')">
+            <label for="lang-pt" class="lang-label">🇧🇷</label>
+
+            <div class="switch-slider"></div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text scroll-animation" data-animation="fadeInLeft">
+                <h1 data-lang="hero_title">Hi, I'm Willian Rosa</h1>
+                <p data-lang="hero_subtitle">Backend developer passionate about building scalable applications.</p>
+                <a href="assets/CV_Willian_Rosa.pdf" download class="btn scroll-animation" data-animation="fadeInUp"
+                    data-lang="hero_btn_cv">📄 Download CV</a>
+                <a href="#projects" class="btn scroll-animation" data-animation="fadeInUp" data-lang="hero_btn">See my
+                    work</a>
+            </div>
+            <div class="hero-image scroll-animation" data-animation="fadeInRight">
+                <img src="assets/willian-photo1.jpeg" alt="Willian Rosa Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text scroll-animation" data-animation="fadeInLeft">
+                <h2 data-lang="about_title">About me</h2>
+                <p data-lang="about_text">
+                    I am a backend developer with experience in Java, Spring Boot, and REST APIs. I love
+                    creating clean, efficient, and scalable code.
+                </p>
+                <div class="social-links scroll-animation" data-animation="fadeInUp">
+                    <a href="https://github.com/WillianRoosa" target="_blank">🐱 GitHub</a>
+                    <a href="https://www.linkedin.com/in/willian-rosa-0500b6238/" target="_blank">💼 LinkedIn</a>
+                </div>
+            </div>
+            <div class="about-image scroll-animation" data-animation="fadeInRight">
+                <img src="assets/willian-photo2.jpeg" alt="Willian Rosa Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2 class="scroll-animation" data-animation="fadeInUp" data-lang="experience_title">Experience</h2>
+        <div class="experience-card scroll-animation" data-animation="fadeInUp">
+            <h3>Estágio em Desenvolvimento e Suporte Técnico</h3>
+            <p><strong>Care - Business</strong> · jun 2024 - jan 2025 · Remoto</p>
+            <ul>
+                <li>Suporte técnico com clientes, visão analítica sobre melhorias no software.</li>
+                <li>Contribuição nas sprints para melhorias no desempenho do ERP.</li>
+                <li>Integração iPaaS, Microsoft Azure, ERP com IA.</li>
+                <li>Alinhamento semanal de tasks no Asana e reuniões com clientes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="scroll-animation" data-animation="fadeInUp" data-lang="projects_title">Projects</h2>
+        <div class="projects_container">
+            <div class="project_card scroll-animation" data-animation="fadeInLeft">
+                <h3>Project 1</h3>
+                <p data-lang="project1_desc">A REST API for managing tasks with Spring Boot and MySQL.</p>
+            </div>
+            <div class="project_card scroll-animation" data-animation="fadeInRight">
+                <h3>Project 2</h3>
+                <p data-lang="project2_desc">FullStack app with Java backend and responsive frontend JavaScript.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="scroll-animation" data-animation="fadeInUp" data-lang="contact_title">Contact Me</h2>
+        <form id="contact-form" class="scroll-animation" data-animation="fadeInUp">
+            <input type="text" name="name" placeholder="Name" required data-lang-placeholder="contact_name">
+            <input type="email" name="email" placeholder="Email" required data-lang-placeholder="contact_email">
+            <input type="tel" name="phone_display" id="phone" placeholder="Phone" required
+                data-lang-placeholder="contact_phone" inputmode="tel" autocomplete="tel" maxlength="16">
+            <input type="hidden" name="phone" id="phone_e164">
+            <textarea name="message" placeholder="Message" required data-lang-placeholder="contact_message"></textarea>
+            <button type="submit" data-lang="contact_btn">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer permanece igual -->
+    <footer class="scroll-animation" data-animation="fadeInUp">
+        <p>&copy; 2025 Willian Rosa Developer</p>
+    </footer>
+    <p id="form-status"></p>
+    <script src="script.js"></script>
+</body>
+
+</html>
