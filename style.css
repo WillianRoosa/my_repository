@@ -436,9 +436,13 @@ footer {
     }
 
     .logo {
-        height: 50px;
-        width: auto;
         object-fit: contain;
+        width: auto;
+        height: 80px;
+    }
+
+    section {
+        margin-top: -50px;
     }
 }
 
