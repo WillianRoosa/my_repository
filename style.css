@@ -433,7 +433,9 @@ footer {
     }
 
     .hero-image img {
-        max-width: 200px;
+        max-width: 250px;
+        margin-top: 50px;
+        margin-bottom: -50px;
     }
 
     .logo {
